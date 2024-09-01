@@ -7,7 +7,7 @@ endpoint = "https://3ttv5myencxjecbxpf7uzuwtzi0tpihp.lambda-url.us-east-1.on.aws
 
 def get_response(text):
     payload = {
-        "prompt": f"Please summarize the following text.\n {text}"
+        "prompt": f"Summarize the following text. Return only the summary, with no additional text or explanations: \n {text}"
     }
 
     response = requests.post(endpoint, json=payload)
@@ -20,8 +20,8 @@ def get_response(text):
 
 
 def main():
-    st.set_page_config(" Text Summarization Bedrock Cohere")
-    st.header("AWS Bedrock integration with Serverless Lambda for Text Summarization with Cohere")
+    st.set_page_config("Text Summarization with Cohere")
+    st.header("Text Summarization with Cohere in AWS Bedrock + Lambda")
 
     text = st.text_area("Write text to summarize")
 
